@@ -28,3 +28,11 @@ puts "Processing refund"
 response = payment.refund_or_void!(payment.get_retref_of_last())
 puts response
 
+puts "Setting up manual entry"
+payment.manual("card number", "Expiry in MMYY", "CVV2", "Postal code")
+payment.sale("1.50")
+response = payment.process()
+
+puts "Processing manual entry refund"
+response = payment.refund_or_void!(payment.get_retref_of_last())
+puts response
