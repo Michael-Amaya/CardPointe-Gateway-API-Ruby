@@ -33,8 +33,18 @@ class CardPointeGateway
     # Set this to the reader output
     def reader_dump(data)
         @request = {
-            "merchid"=> @merchant_id,
+            "merchid" => @merchant_id,
             "track" => data,
+        }
+    end
+
+    def manual_entry(card_number, expiry, cvv, postal)
+        @request = {
+            "merchid" => @merchant_id,
+            "account" => card_number,
+            "expiry" => "#{expiry}", ## MMYY format
+            "cvv2" => cvv,
+            "postal" => postal
         }
     end
 

@@ -1,5 +1,6 @@
-require_relative("./cardpointe_gateway")
+require_relative("./lib/cardpointe_gateway")
 
+# Test info from https://support.cardpointe.com/gateway-test-credentials
 SITE = "fts-uat"
 MERCHANT_ID = "496160873888"
 USERNAME = "testing"
@@ -26,3 +27,4 @@ puts "Processing refund"
 #Setup a refund or void of last order and put into console
 response = payment.refund_or_void!(payment.get_retref_of_last())
 puts response
+
